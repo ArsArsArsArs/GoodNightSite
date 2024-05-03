@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Good Night</title>
+        <link rel="icon" type="image/svg+xml" href="images/GoodNightLogo.svg">
+        <link rel="stylesheet" href="styles/original.css" id="scale-link">
+        <script src="scripts/scaling.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <noscript><h3>Your browser doesn't support JS. Update your software or turn JavaScript on in the settings.</h3></noscript>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <div class="logo icon">
+                        <img src="images/GoodNightLogo.svg" alt="Good Night Logo">
+                    </div>
+                    <div class="logo title">
+                        <h1>Good Night</h1>
+                        <p id="caption">A Discord bot</p>
+                    </div>
+                </div>
+                <div class="promo-buttons">
+                    <a class="promo-buttons button add" href="https://discord.com/oauth2/authorize?client_id=1048561114377637949" target="_blank" style="background-color: rgb(114,137,218);" id="add-button">Add the bot</a>
+                    <a class="promo-buttons button support" href="https://discord.gg/EJ5GDPdUW9" target="_blank" style="background-color: rgb(238, 103, 103);" id="support-button">Support</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="body">
+            <div class="menu">
+                <div class="side-buttons">
+                    <a class="side-buttons button about" href="about.html" target="_self" id="about-label">About the bot</a>
+                    <a class="side-buttons button tos" href="tos.html" target="_self" id="tos-label">Terms of Service</a>
+                    <a class="side-buttons button pp" href="pp.html" target="_self" id="pp-label">Privacy Policy</a>
+                    
+                </div>
+            </div>
+            <h2 id="title-page">About the bot</h2>
+            <h4 class="title-caption" id="title-caption"><i>The night mode - restrict voice or text activity at night</i></h4>
+            <div class="description"> 
+                <p id="p1">Not every server has staff which are ready to fulfil duties 24/7. At night, many servers remain defenceless, and this is where Good Night comes in. Here's a guide:</p><br>
+                <ol>
+                    <li id="li1">Set your time zone and the start and end times of night using the <p class="command">/setup</p> command.</li>
+                    <li id="li2">Set actions that bot must perform at night using the <p class="command">/actions</p> command (for example, deleting messages with attachments or disconnecting members from voice channels).</li>
+                    <li id="li3">If you wish, you can set notifications about the times night starts and ends using the <p class="command">/notification</p> command.</li>
+                </ol>
+                <br>
+                <br>
+                <p id="p2">Keep in mind that:</p><br>
+                <ul>
+                    <li id="li4">If staff are not going to sleep the next night, you can temporarily cancel the restrictions using the <p class="command">/skip</p> command.</li>
+                    <li id="li5">If you have trusted members you can left unattended at night, use the <p class="command">/ignore-role</p> command.</li>
+                </ul>
+                <br>
+                <br>
+                <p id="p3">The bot is owned by <a href="https://discord.gg/JTMPbepexz" target="_blank" style="color: orange;">OrangeGround</a>. Feel free to join this Discord server!</p>
+            </div>
+        </div>
+        
+        <script src="scripts/translating.js"></script>
+    </body>
+</html>
+
+<style>
+    ol {
+        color: white;
+    }
+
+    .side-buttons.button.about {
+        color: wheat;
+    }
+    .title-caption {
+        text-align: center;
+    }
+    .description {
+        padding: 20px;
+        font-size: 17px;
+    }
+    .command {
+        display: inline;
+        font-family: monospace;
+    }
+</style>
