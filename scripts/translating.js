@@ -1,7 +1,7 @@
 if(navigator.language.includes('ru')) {
     document.getElementById("caption").innerText = "Дискорд бот";
-    document.getElementById("add-button").innerHTML = `<img src="../images/add.svg" alt="Plus icon"> Добавить бота`;
-    document.getElementById("support-button").innerHTML = `<img src="../images/support.svg" alt="Support icon"> Поддержка`;
+    document.getElementById("add-button").innerHTML = `<img src="./images/add.svg" alt="Иконка плюса"> Добавить бота`;
+    document.getElementById("support-button").innerHTML = `<img src="./images/support.svg" alt="Иконка поддержки"> Поддержка`;
     document.getElementById("about-label").innerText = "О боте";
     document.getElementById("tos-label").innerText = "Условия использования";
     document.getElementById("pp-label").innerText = "Политика конфиденциальности";
