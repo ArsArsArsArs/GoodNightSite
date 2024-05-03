@@ -29,6 +29,10 @@
     white-space: nowrap;
 }
 
+.logo.title a {
+    text-decoration: none;
+}
+
 .promo-buttons {
     display: flex;
     gap: 10px;
