@@ -45,7 +45,12 @@ if (navigator.language == "ru") {
             document.getElementById("li2").innerHTML = "<b>ID каналов:</b> как направление для уведомлений";
             document.getElementById("li3").innerHTML = "<b>ID ролей:</b> для установки игнорируемой роли";
             document.getElementById("li4").innerHTML = "<b>Картинки:</b> аватар и баннер для установки ночью";
-            document.getElementById("p2").innerHTML = `Чтобы очистить данные о вашем сервере свяжитесь с владельцем бота в Дискорде: <a href="https://discord.com/users/853937919601016833" target="_blank">@arseny3</a>`
+            document.getElementById("p2").innerHTML = `Чтобы очистить данные о вашем сервере свяжитесь с владельцем бота в Дискорде: <a href="https://discord.com/users/853937919601016833" target="_blank">@arseny3</a>`;
+            break;
+
+        case "404":
+            document.getElementById("404-title").innerText = "Кажется, Вы потерялись";
+            document.getElementById("404-paragraph").innerText = "Используйте кнопки выше, чтобы выбраться отсюда";
             break;
         
         default:
