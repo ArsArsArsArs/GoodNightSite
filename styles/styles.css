@@ -1,7 +1,12 @@
 .header {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
+
+    @media screen and (max-width: 685px) {
+        justify-content: center;
+    }
 
     @media screen and (max-width: 600px) {
         flex-direction: column;
@@ -36,13 +41,7 @@
 .promo-buttons {
     display: flex;
     gap: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
-
-    @media screen and (max-width: 600px) {
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
+    margin: 10px 10px 15px;
 }
 
 .promo-buttons.button {
@@ -79,7 +78,7 @@
     flex-wrap: wrap;
     background-color: rgb(82, 82, 148);
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 685px) {
         justify-content: center;
     }
 
