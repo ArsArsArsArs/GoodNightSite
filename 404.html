@@ -4,17 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>404</title>
+        <meta name="robots" content="noindex">
 
         <link rel="icon" type="image/svg+xml" href="images/GoodNightLogo.svg">
-        <link rel="stylesheet" href="styles/original.css" id="scale-link">
-        <script src="scripts/scaling.js"></script>
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/styles.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     </head>
+
     <body>
-        <noscript><h3>Your browser doesn't support JS. Update your software or turn JavaScript on in the settings.</h3></noscript>
         <header>
             <div class="header">
                 <div class="logo">
@@ -22,13 +23,19 @@
                         <img src="images/GoodNightLogo.svg" alt="Good Night Logo">
                     </div>
                     <div class="logo title">
-                        <h1>Good Night</h1>
+                        <h1><a href="./" target="_self">Good Night</a></h1>
                         <p id="caption">A Discord bot</p>
                     </div>
                 </div>
                 <div class="promo-buttons">
-                    <a class="promo-buttons button add" href="https://discord.com/oauth2/authorize?client_id=1048561114377637949" target="_blank" style="background-color: rgb(114,137,218);" id="add-button">Add the bot</a>
-                    <a class="promo-buttons button support" href="https://discord.gg/EJ5GDPdUW9" target="_blank" style="background-color: rgb(238, 103, 103);" id="support-button">Support</a>
+                    <a class="promo-buttons button add" href="https://discord.com/oauth2/authorize?client_id=1048561114377637949" target="_blank" style="background-color: rgb(114,137,218);" id="add-button">
+                        <img src="images/add.svg" alt="Plus icon">
+                        Add the bot
+                    </a>
+                    <a class="promo-buttons button support" href="https://discord.gg/EJ5GDPdUW9" target="_blank" style="background-color: rgb(238, 103, 103);" id="support-button">
+                        <img src="images/support.svg" alt="Support icon">
+                        Support
+                    </a>
                 </div>
             </div>
         </header>

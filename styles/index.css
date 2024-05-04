@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background-color: rgb(55, 55, 94);
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+li {
+    color: white;
+}
+
+header {
+    background-color: rgb(59, 59, 173);
+}
