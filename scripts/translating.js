@@ -1,3 +1,7 @@
+fetch("https://api.gn-bot.site/servers").then(res => {
+    console.log(res)
+})
+
 if(navigator.language.includes('ru')) {
     document.getElementById("caption").innerText = "Дискорд бот";
     document.getElementById("add-button").innerHTML = `<img src="./images/add.svg" alt="Иконка плюса"> Добавить бота`;
