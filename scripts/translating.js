@@ -1,5 +1,9 @@
 fetch("https://api.gn-bot.site/servers").then(res => {
-    console.log(res)
+    console.log(res.json())
+    console.log("===")
+    res.json().then(resJson => {
+        console.log(resJson)
+    })
 })
 
 if(navigator.language.includes('ru')) {
