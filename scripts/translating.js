@@ -1,8 +1,8 @@
 fetch("https://api.gn-bot.site/servers").then(res => {
-    console.log(res.json())
+    console.log(res.text())
     console.log("===")
-    res.json().then(resJson => {
-        console.log(resJson)
+    res.text().then(text => {
+        console.log(text)
     })
 })
 
