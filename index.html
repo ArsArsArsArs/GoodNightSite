@@ -7,6 +7,7 @@
         <meta content="Good Night - a Discord bot" property="og:title">
         <meta content="Not every server has staff which are ready to fulfil duties 24/7. At night, many servers remain defenceless, and this is where Good Night comes in" property="og:description">
         <meta content="https://gn-bot.site" property="og:url">
+
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="GN">
@@ -19,6 +20,7 @@
         <link rel="icon" type="image/svg+xml" href="images/GoodNightLogo.svg">
         <link rel="stylesheet" href="styles/index.css">
         <link rel="stylesheet" href="styles/styles.css">
+        <link rel="manifest" href="manifest.json">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +29,7 @@
     <script>
         if ("serviceWorker" in window.navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/scripts/service-worker.js").then((registration) => {
+                navigator.serviceWorker.register("/scripts/service-worker.js", {scope: "/"}).then((registration) => {
                     console.log(`Service worker has been registered with the following scope: ${registration.scope}`);
                 }, (err) => {
                     console.log(`Service worker HASN'T been registered. Why: ${err}`)
