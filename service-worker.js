@@ -12,7 +12,7 @@ const urlsToCache = [
     "/images/add.svg",
     "/images/btc96.png",
     "/images/GoodNightLogo.svg",
-    "/images/GoodNightLogoPng.png",
+    "/images/GoodNightPng.png",
     "/images/sdc96.png",
     "/images/support.svg",
     "/images/topgg96.png"
