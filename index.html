@@ -29,7 +29,7 @@
     <script>
         if ("serviceWorker" in window.navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/scripts/service-worker.js", {scope: "/"}).then((registration) => {
+                navigator.serviceWorker.register("/service-worker.js", {scope: "/"}).then((registration) => {
                     console.log(`Service worker has been registered with the following scope: ${registration.scope}`);
                 }, (err) => {
                     console.log(`Service worker HASN'T been registered. Why: ${err}`)
