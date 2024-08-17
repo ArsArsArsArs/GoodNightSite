@@ -18,12 +18,17 @@ const urlsToCache = [
     "/images/topgg96.png"
 ]
 
-self.addEventListener("install", (event) => {
+self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(urlsToCache);
-        }).catch(err => {
-            console.error(`Failed to cache: ${err}`);
+      caches.open(CACHE_NAME)
+        .then(cache => {
+          return Promise.all(
+            urlsToCache.map(url => {
+              return cache.add(url).catch(err => {
+                console.error('Failed to cache:', url, err);
+              });
+            })
+          );
         })
     );
 });
