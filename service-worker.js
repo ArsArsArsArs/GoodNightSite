@@ -18,14 +18,14 @@ const urlsToCache = [
     "/images/topgg96.png"
 ]
 
-self.addEventListener('install', event => {
+self.addEventListener("install", event => {
     event.waitUntil(
       caches.open(CACHE_NAME)
         .then(cache => {
           return Promise.all(
             urlsToCache.map(url => {
               return cache.add(url).catch(err => {
-                console.error('Failed to cache:', url, err);
+                console.error("Failed to cache:", url, err);
               });
             })
           );
@@ -55,3 +55,25 @@ self.addEventListener("fetch", (event) => {
         })
     );
 });
+
+self.addEventListener("push", (push) => {
+    const data = push.data.json();
+    const title = data.title || "Notification";
+    const options = {
+        body: data.body,
+        icon: data.icon || "/images/GoodNightPng.png",
+        data: data.url || "/"
+    };
+
+    push.waitUntil(
+        self.registration.showNotification(title, options)
+    );
+});
+
+self.addEventListener("notificationclick", (click) => {
+    click.notification.close();
+    click.waitUntil(
+        clients.openWindow(click.notification.data)
+    );
+});
+

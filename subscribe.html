@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Good Night</title>
+        <meta content="Good Night - about" property="og:title">
+        <meta content="Not every server has staff which are ready to fulfil duties 24/7. At night, many servers remain defenceless, and this is where Good Night comes in" property="og:description">
+        <meta content="https://gn-bot.site/about" property="og:url">
+        <meta content="#FFCF48" data-react-helmet="true" name="theme-color">
+
+        <link rel="icon" type="image/svg+xml" href="images/GoodNightLogo.svg">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="stylesheet" href="styles/styles.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <div class="logo icon">
+                        <img src="images/GoodNightLogo.svg" alt="Good Night Logo">
+                    </div>
+                    <div class="logo title">
+                        <h1><a href="./" target="_self">Good Night</a></h1>
+                        <p id="caption">A Discord bot</p>
+                    </div>
+                </div>
+                <div class="promo-buttons">
+                    <a class="promo-buttons button add" href="https://discord.com/oauth2/authorize?client_id=1048561114377637949" target="_blank" style="background-color: rgb(114,137,218);" id="add-button">
+                        <img src="images/add.svg" alt="Plus icon">
+                        Add the bot
+                    </a>
+                    <a class="promo-buttons button support" href="https://discord.gg/EJ5GDPdUW9" target="_blank" style="background-color: rgb(238, 103, 103);" id="support-button">
+                        <img src="images/support.svg" alt="Support icon">
+                        Support
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="body">
+            <script>
+                function urlBase64ToUint8Array(base64String) {
+                    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+                    const base64 = (base64String + padding)
+                        .replace(/\-/g, '+')
+                        .replace(/_/g, '/');
+                    const rawData = window.atob(base64);
+                    const outputArray = new Uint8Array(rawData.length);
+
+                    for (let i = 0; i < rawData.length; ++i) {
+                        outputArray[i] = rawData.charCodeAt(i);
+                    }
+                    return outputArray;
+                }
+
+                function subscribeUser() {
+                    window.navigator.serviceWorker.ready.then((registration) => {
+                        return registration.pushManager.subscribe({
+                            userVisibleOnly: true,
+                            applicationServerKey: urlBase64ToUint8Array("BEm0qn16d1DjaK9C2EQF26nMMtH1LhrKGKEyqx831M6dcgv40-6w2g8hkrKHJWutcXz_lPslKc0cdO1kQ1yQAyo")
+                        });
+                    }).then((subscription) => {
+                        fetch("https://api.gn-bot.site/subscribe", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(subscription)
+                        }).catch((err) => {
+                            console.error(`Failed to send a request to subscribe: ${err}`);
+                        });
+                    }).catch((err) => {
+                        console.error(`Failed to subscribe a user: ${err}`);
+                    });
+                };
+
+                if ("serviceWorker" in navigator && "PushManager" in window) {
+                    window.navigator.serviceWorker.ready.then((registration) => {
+                        return registration.pushManager.getSubscription();
+                    }).then((subscription) => {
+                        if (!subscription) {
+                            Notification.requestPermission().then((perm) => {
+                                if (perm === "granted") {
+                                    subscribeUser();
+                                };
+                            });
+                        } else {
+                            alert("You are already subscribed");
+                        };
+                    }).catch((err) => {
+                        console.error("Failed to get subscription, aborting...");
+                    })
+                } else {
+                    console.warn("Pushing is not available.");
+                }
+            </script>
+        </div>
+    </body>
+</html>
+
