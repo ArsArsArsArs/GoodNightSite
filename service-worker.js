@@ -49,9 +49,20 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+    if (event.request.method !== "GET") {
+        event.respondWith(fetch(event.request).catch(error => {
+            console.error("Fetch failed in the service worker for a non-GET request:", error);
+            throw error;
+        }));
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request).then(response => {
-            return response || fetch(event.request);
+            return response || fetch(event.request).catch(error => {
+                console.error("Fetch failed in the service worker:", error);
+                throw error;
+            });
         })
     );
 });
