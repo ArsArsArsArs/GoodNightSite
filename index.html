@@ -80,19 +80,19 @@
             <h3 style="text-align: center;" id="while-here">While you are here...</h3>
             <p style="text-align: center;" id="upvote-pls">Did you know you can upvote the bot in the lists?</p>
             <div class="lists-links">
-                <a href="https://top.gg/bot/1048561114377637949" target="_blank" class="lists-links topgg">
+                <a href="https://top.gg/bot/1048561114377637949" target="_blank" class="lists-links topgg" onclick="setNotification('topgg')">
                     <figure>
                         <img src="images/topgg96.png" alt="Top.gg icon">
                         <figcaption style="text-align: center; background-color: rgb(255,51,102);">Top.GG</figcaption>
                     </figure>
                 </a>
-                <a href="https://boticord.top/bot/1048561114377637949" target="_blank" class="lists-links btc">
+                <a href="https://boticord.top/bot/1048561114377637949" target="_blank" class="lists-links btc" onclick="setNotification('boticord')">
                     <figure>
                         <img src="images/btc96.png" alt="Boticord icon">
                         <figcaption style="text-align: center; background-color: rgb(43,121,255);">Boticord</figcaption>
                     </figure>
                 </a>
-                <a href="https://bots.server-discord.com/1048561114377637949" target="_blank" class="lists-links sdc">
+                <a href="https://bots.server-discord.com/1048561114377637949" target="_blank" class="lists-links sdc" onclick="setNotification('sdc')">
                     <figure>
                         <img src="images/sdc96.png" alt="VARE icon">
                         <figcaption style="text-align: center; background-color: rgb(114,137,218);">Bots SD.C</figcaption>
@@ -102,5 +102,25 @@
         </div>
         
         <script src="scripts/translating.js"></script>
+        <script>
+            function setNotification(monitoring) {
+                window.navigator.serviceWorker.ready.then((registration) => {
+                    registration.pushManager.getSubscription().then((subscription) => {
+                        if (!subscription) return;
+                        const toSendJSON = subscription.toJSON();
+                        toSendJSON.monitoring = monitoring;
+                        fetch("https://api.gn-bot.site/setNotification", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(toSendJSON),
+                        }).catch((err) => {
+                            console.error(`Failed to set a notification:  ${err}`);
+                        });
+                    });
+                });
+            };
+        </script>
     </body>
 </html>
