@@ -1,4 +1,4 @@
-const CACHE_NAME = "gn-site-v1.1"
+const CACHE_NAME = "gn-site-v1.2"
 const urlsToCache = [
     "/",
     "/index.html",
@@ -85,6 +85,12 @@ self.addEventListener("notificationclick", (click) => {
     click.notification.close();
     click.waitUntil(
         clients.openWindow(click.notification.data)
+    );
+
+    click.waitUntil(
+        self.registration.getNotifications().then((notifications) => {
+            notifications.forEach((notification) => notification.close());
+        })
     );
 });
 
